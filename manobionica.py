@@ -39,9 +39,9 @@ def index():
   }
   return render_template('index.html', **templateData)
 
-@app.route("/<action>/<option>", methods=['POST'])
+@app.route("/act/<action>/<option>", methods=['POST'])
 def onPost(action, option):
-  print("Handling action: /" + action + "/" + option)
+  print("Handling action: /act/" + action + "/" + option)
   runnable = actions[action][option]
   target=runnable['function']
   args=runnable['arguments']
