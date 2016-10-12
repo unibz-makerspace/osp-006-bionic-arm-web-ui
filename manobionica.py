@@ -1,15 +1,20 @@
+import zmq
+context = zmq.Context()
+
+socket = context.socket(zmq.PUB)
+socket.bind("tcp://127.0.0.1:5680")
+
 def handClose():
   print('handClose')
-  return
+  socket.send_string("handClose")
 
 def handOpen():
   print('handOpen')
-  return
+  socket.send_string("handOpen")
 
 def handStop():
   print('handStop')
-  return
-
+  socket.send_string("handClose")
 
 actions = {
   'hand' : {
